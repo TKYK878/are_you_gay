@@ -1,0 +1,90 @@
+body {
+	background-color: #fffbe6;
+	font-family: "微軟正黑體", sans-serif;
+	text-align: center;
+	padding: 50px;
+}
+
+h1 {
+	font-size: 32px;
+	margin-bottom: 40px;
+	color: #333;
+}
+
+button {
+	background-color: #ffc107;
+	border: none;
+	padding: 15px 30px;
+	border-radius: 8px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+button:hover {
+	background-color: #ffb300;
+}
+
+.wheel-container {
+	margin: 30px auto;
+	width: 300px;
+	height: 300px;
+	position: relative;
+}
+
+.pointer {
+	position: absolute;
+	top: 1%;
+	left: 46%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 20px solid #444; /* 指針的顏色 */
+	z-index: 10;
+	transform: rotate(180deg);
+}
+
+.wheel {
+	width: 300px;
+	height: 300px;
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 5px solid #444;
+	transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+	transform: rotate(0deg);
+}
+
+.sector {
+	position: absolute;
+	width: 100%;
+	height: 50%;        /* ← 這行是關鍵！ */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+}
+
+.no {
+    top: 0;
+	background-color: #4caf50;
+	transform: rotate(0deg);
+    border-top-left-radius: 100% 200%;
+	border-top-right-radius: 100% 200%;
+}
+
+.yes {
+    bottom: 0;
+	background-color: #e91e63;
+    border-bottom-left-radius: 100% 200%;
+	border-bottom-right-radius: 100% 200%;
+}
+
+.yes-text {
+	transform: rotate(180deg);      /* 只轉文字 */
+	display: inline-block;          /* transform 要這個才能生效 */
+}
