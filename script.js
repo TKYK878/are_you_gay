@@ -5,6 +5,12 @@ function startSpin() {
 	if (spinning) return; // 如果正在轉，直接跳出不執行
 	spinning = true;
 
+	gtag('event', 'spin_button_clicked', {
+	event_category: '轉盤',
+	event_label: '按下按鈕'
+	});
+
+
 	const wheel = document.getElementById('wheel');
 	const button = document.getElementById('spinButton');
 
